@@ -26,18 +26,17 @@ class PostController extends Controller
             ->route('posts.index');
     }
 
-    public function update(PostRequest $request, Post $post)
+    public function update(PostRequest $request)
     {
-        $post->content = $request->content;
-        $post->save();
+        Post::find($request->id)->update(['content'=>$request->content]);
 
         return redirect()
             ->route('posts.index');
     }
 
-    public function destroy(Post $post)
+    public function destroy(Request $request)
     {
-        $post->delete();
+        Post::find($request->id)->delete(['content'=>$request->content]);
 
         return redirect()
             ->route('posts.index');

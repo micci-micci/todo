@@ -28,7 +28,7 @@
                     <td>
                         <p>{{ $post->created_at }}</p>
                     </td>
-                    <form method="post" action="{{ route('posts.update', $post) }}">
+                    <form method="post" action="{{ route('posts.update') }}">
                         @method('PATCH')
                         @csrf
 
@@ -37,14 +37,16 @@
                         </td>
                         <td>
                             <input class="button-update" type="submit" value="更新" />
+                            <input type="hidden" name="id" value="{{ $post->id }}">
                         </td>
                     </form>
-                    <form method="post" action="{{ route('posts.destroy', $post) }}" id="delete_post">
+                    <form method="post" action="{{ route('posts.destroy') }}" id="delete_post">
                         @method('DELETE')
                         @csrf
 
                         <td>
                             <input class="button-destroy" type="submit" value="削除" />
+                            <input type="hidden" name="id" value="{{ $post->id }}">
                         </td>
                     </form>
                 </tr>
