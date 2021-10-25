@@ -33,7 +33,7 @@
                         @csrf
 
                         <td>
-                            <input type="text" name="content" class="sub_input" value="{{ old('content',  $post->content) }}">
+                            <input type="text" name="content" class="sub_input" value="{{ $post->content }}">
                         </td>
                         <td>
                             <input class="button-update" type="submit" value="更新" />
